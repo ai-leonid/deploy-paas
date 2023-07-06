@@ -59,50 +59,50 @@ export default async function (fastify, opts) {
 	}
 
 	// !!! admin JS
-	const localProvider = {
-		bucket: 'uploads/images',
-		opts: {
-			baseUrl: '/files',
-		},
-	};
+	// const localProvider = {
+	// 	bucket: 'uploads/images',
+	// 	opts: {
+	// 		baseUrl: '/files',
+	// 	},
+	// };
 
-	const componentLoader = new ComponentLoader()
+	// const componentLoader = new ComponentLoader()
 
-	const files = {
-		resource: Upload,
-		/*options: {
-			properties: {
-				Key: {
-					type: 'string',
-				},
-				bucket: {
-					type: 'string',
-				},
-				mime: {
-					type: 'string',
-				},
-				comment: {
-					type: 'textarea',
-					isSortable: false,
-				},
-			},
-		},*/
-		features: [
-			uploadFeature({
-				componentLoader,
-				provider: { local: { bucket: 'uploads/images', opts: {} } },
-				properties: { file: 'file', key: 'filename', bucket: 'bucket', mimeType: 'mime' },
-				validation: { mimeTypes: ['image/png'] },
-			}),
-		],
-	};
+	// const files = {
+	// 	resource: Upload,
+	// 	/*options: {
+	// 		properties: {
+	// 			Key: {
+	// 				type: 'string',
+	// 			},
+	// 			bucket: {
+	// 				type: 'string',
+	// 			},
+	// 			mime: {
+	// 				type: 'string',
+	// 			},
+	// 			comment: {
+	// 				type: 'textarea',
+	// 				isSortable: false,
+	// 			},
+	// 		},
+	// 	},*/
+	// 	features: [
+	// 		uploadFeature({
+	// 			componentLoader,
+	// 			provider: { local: { bucket: 'uploads/images', opts: {} } },
+	// 			properties: { file: 'file', key: 'filename', bucket: 'bucket', mimeType: 'mime' },
+	// 			validation: { mimeTypes: ['image/png'] },
+	// 		}),
+	// 	],
+	// };
 
 	// "secret" must be a string with at least 32 characters, example:
 	const cookieSecret = 'sieL67H7GbkzJ4XCoH0IHcmO1hGBSiG5'
 	const admin = new AdminJS({
 		// databases: [mongooseDb],
 		rootPath: '/admin',
-		resources: [Excursion, Comment, Order/*, Upload*/, files],
+		resources: [Excursion, Comment, Order/*, Upload, files*/],
 	});
 
 	const sessionStore =  MongoStore.create({
